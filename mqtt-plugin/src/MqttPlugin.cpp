@@ -405,7 +405,7 @@ public:
                     if (samples.size() == 0) {
                         if (sampling.mode == plugin::mqtt::SamplingModes::Async)
                         {
-                            odk::updateChannelState(host, id.value(), context.m_master_timestamp.m_ticks);
+                            odk::addSample(host, id.value(), context.m_master_timestamp.m_ticks, 0.0);
                         }
                     }
                     // Every channel buffers samples
