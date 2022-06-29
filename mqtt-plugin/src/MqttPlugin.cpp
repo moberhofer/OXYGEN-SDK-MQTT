@@ -402,6 +402,12 @@ public:
                 auto id = channel->getLocalChannelId();
                 if (id)
                 {
+                    if (samples.size() == 0) {
+                        if (sampling.mode == plugin::mqtt::SamplingModes::Async)
+                        {
+                            odk::updateChannelState(host, id.value(), context.m_master_timestamp.m_ticks);
+                        }
+                    }
                     // Every channel buffers samples
                     for (auto &sample : samples)
                     {
